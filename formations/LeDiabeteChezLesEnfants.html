@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Diabète Type 1 | Croix-Rouge Française</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --red-cross: #e30613;
+            --red-cross-dark: #b1050f;
+            --red-cross-light: #ff4d5a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333333;
+            --blue: #005eb8;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--red-cross) 0%, var(--red-cross-dark) 100%);
+            color: var(--white);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            background-color: var(--white);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--red-cross);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--white);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--red-cross);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--red-cross);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--red-cross);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        section h2 {
+            color: var(--red-cross);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--red-cross-light);
+            display: inline-block;
+        }
+        
+        section h3 {
+            color: var(--red-cross-dark);
+            margin: 1.8rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .section-intro {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+        
+        /* Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--red-cross);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background-color: var(--red-cross);
+            color: var(--white);
+            padding: 1.2rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .comparison-table th {
+            background-color: var(--red-cross);
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        /* Emergency Section */
+        .emergency-section {
+            background-color: #fff8f8;
+            border-left: 5px solid var(--red-cross);
+        }
+        
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box h4 {
+            color: #e65100;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tool-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow);
+        }
+        
+        .tool-icon {
+            background-color: var(--red-cross);
+            color: var(--white);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 1rem 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            color: var(--red-cross-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--red-cross);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="logo-text">Croix-Rouge Française</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#comprendre" class="active">Comprendre</a></li>
+                    <li><a href="#risques">Risques & Outils</a></li>
+                    <li><a href="#secourisme">Secourisme</a></li>
+                    <li><a href="#enfants">Enfants & Activités</a></li>
+                    <li><a href="#trousse">Trousse d'urgence</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Formation Diabète Type 1 pour Animateurs</h1>
+            <p>Un guide complet pour comprendre, accompagner et sécuriser les enfants diabétiques en accueil de loisirs et colonies de vacances</p>
+            <div class="btn-container">
+                <a href="#comprendre" class="btn">Commencer la formation</a>
+                <a href="#secourisme" class="btn btn-outline">Accès rapide secourisme</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Section 1: Comprendre le diabète -->
+        <section id="comprendre">
+            <h2>Comprendre le Diabète de Type 1</h2>
+            <p class="section-intro">Le diabète de type 1 (DT1) est une maladie auto-immune caractérisée par la destruction des cellules du pancréas produisant l'insuline. Contrairement au diabète de type 2, il n'est pas lié au mode de vie et apparaît généralement pendant l'enfance ou l'adolescence.</p>
+            
+            <h3>Le glucose et l'insuline</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">Glucose</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Source d'énergie principale pour le corps</li>
+                            <li>Provient des aliments (sucres et glucides)</li>
+                            <li>Transporté par le sang vers les cellules</li>
+                            <li>Nécessite l'insuline pour pénétrer dans les cellules</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Insuline</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Hormone produite par le pancréas</li>
+                            <li>Clé qui permet au glucose d'entrer dans les cellules</li>
+                            <li>Régule la glycémie (taux de glucose dans le sang)</li>
+                            <li>Absente ou insuffisante en cas de DT1</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Problème en DT1</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Destruction des cellules productrices d'insuline</li>
+                            <li>Glucose reste dans le sang (hyperglycémie)</li>
+                            <li>Cellules privées d'énergie</li>
+                            <li>Nécessité d'apports externes d'insuline</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Différence entre Type 1 et Type 2</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Caractéristique</th>
+                        <th>Diabète de Type 1</th>
+                        <th>Diabète de Type 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cause</td>
+                        <td>Maladie auto-immune</td>
+                        <td>Résistance à l'insuline</td>
+                    </tr>
+                    <tr>
+                        <td>Âge d'apparition</td>
+                        <td>Enfance/Jeunesse</td>
+                        <td>Adulte (souvent après 40 ans)</td>
+                    </tr>
+                    <tr>
+                        <td>Facteurs de risque</td>
+                        <td>Génétiques et environnementaux</td>
+                        <td>Obésité, sédentarité, alimentation</td>
+                    </tr>
+                    <tr>
+                        <td>Traitement</td>
+                        <td>Insuline indispensable</td>
+                        <td>Médicaments oraux, parfois insuline</td>
+                    </tr>
+                    <tr>
+                        <td>Prévention</td>
+                        <td>Impossible</td>
+                        <td>Possible (mode de vie sain)</td>
+                    </tr>
+                    <tr>
+                        <td>Proportion des cas</td>
+                        <td>5-10%</td>
+                        <td>90-95%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Section 2: Risques et outils -->
+        <section id="risques">
+            <h2>Risques et Outils de Gestion</h2>
+            <p class="section-intro">La gestion du diabète de type 1 implique un équilibre constant entre l'alimentation, l'activité physique et l'insulinothérapie. Comprendre les risques et les outils disponibles est essentiel pour assurer la sécurité de l'enfant.</p>
+            
+            <h3>Risques principaux</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">Hypoglycémie</div>
+                    <div class="card-body">
+                        <p><strong>Glycémie &lt; 70 mg/dL</strong></p>
+                        <ul>
+                            <li>Tremblements, sueurs, pâleur</li>
+                            <li>Faim soudaine, irritabilité</li>
+                            <li>Faiblesse, confusion</li>
+                            <li>Dans les cas graves : perte de conscience, convulsions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Hyperglycémie</div>
+                    <div class="card-body">
+                        <p><strong>Glycémie &gt; 180 mg/dL</strong></p>
+                        <ul>
+                            <li>Soif intense, bouche sèche</li>
+                            <li>Fatigue, envie fréquente d'uriner</li>
+                            <li>Vision floue, nausées</li>
+                            <li>Si prolongée : acidocétose (urgence vitale)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Complications à long terme</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Atteinte des yeux (rétinopathie)</li>
+                            <li>Problèmes rénaux (néphropathie)</li>
+                            <li>Lésions nerveuses (neuropathie)</li>
+                            <li>Problèmes cardiovasculaires</li>
+                            <li>Prévention par un bon contrôle glycémique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Outils de gestion du diabète</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h4>Glucomètre</h4>
+                    <p>Mesure la glycémie par une goutte de sang. Nécessite des bandelettes et des lancettes.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-sensor"></i>
+                    </div>
+                    <h4>Capteur de Glucose</h4>
+                    <p>Mesure en continu le glucose sous la peau. Données accessibles sur smartphone.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h4>Stylo à insuline</h4>
+                    <p>Permet d'injecter l'insuline sous la peau. Dosage précis et discret.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-pump-medical"></i>
+                    </div>
+                    <h4>Pompe à insuline</h4>
+                    <p>Délivre l'insuline en continu via un cathéter. Programmable selon les besoins.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Secourisme -->
+        <section id="secourisme" class="emergency-section">
+            <h2>Secourisme - Premiers Secours</h2>
+            <p class="section-intro">Cette section présente les gestes essentiels à connaître en cas d'urgence liée au diabète. En tant qu'animateur, votre rôle est de reconnaître les signes, appliquer les premiers gestes et alerter les secours si nécessaire.</p>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important pour les animateurs</h4>
+                <p>Vous n'êtes pas autorisés à administrer de l'insuline ou à faire des injections (sauf glucagon en cas d'urgence vitale). Votre rôle est de reconnaître les signes, donner les premiers soins et alerter les secours.</p>
+            </div>
+            
+            <h3>Reconnaître une hypoglycémie ou hyperglycémie</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Symptômes</th>
+                        <th>Hypoglycémie</th>
+                        <th>Hyperglycémie/Acidocétose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apparition</td>
+                        <td>Rapide (minutes)</td>
+                        <td>Progressive (heures/jours)</td>
+                    </tr>
+                    <tr>
+                        <td>Signes courants</td>
+                        <td>Tremblements, sueurs, faim, pâleur, irritabilité</td>
+                        <td>Soif intense, bouche sèche, fatigue, envie d'uriner fréquente</td>
+                    </tr>
+                    <tr>
+                        <td>Signes neurologiques</td>
+                        <td>Confusion, difficulté à parler, vision floue</td>
+                        <td>Somnolence, difficulté à se concentrer</td>
+                    </tr>
+                    <tr>
+                        <td>Signes graves</td>
+                        <td>Perte de conscience, convulsions</td>
+                        <td>Vomissements, douleurs abdominales, haleine fruitée (odeur de pomme reinette)</td>
+                    </tr>
+                    <tr>
+                        <td>Respiration</td>
+                        <td>Normale</td>
+                        <td>Profonde et rapide (respiration de Kussmaul)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Conduite à tenir</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">Hypoglycémie légère à modérée</div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Arrêter toute activité physique</li>
+                            <li>Donner <strong>15g de sucre rapide</strong> (ex: 150ml de jus de fruit, 3 morceaux de sucre, 1 cuillère à soupe de miel)</li>
+                            <li>Attendre 15 minutes et contrôler la glycémie si possible</li>
+                            <li>Si toujours basse, répéter l'étape 2</li>
+                            <li>Après amélioration, donner une collation (pain, biscuit) pour stabiliser</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Hypoglycémie sévère (inconscience)</div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Appeler immédiatement les secours (15 ou 112)</li>
+                            <li>Vérifier la respiration</li>
+                            <li>Administrer du <strong>glucagon</strong> si disponible et formé</li>
+                            <li>Placer en Position Latérale de Sécurité (PLS)</li>
+                            <li>Surveiller jusqu'à l'arrivée des secours</li>
+                            <li>NE PAS donner à boire ou à manger</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Hyperglycémie/Acidocétose</div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Appeler les secours (15 ou 112) - URGENCE VITALE</li>
+                            <li>Encourager à boire de l'eau (si conscient)</li>
+                            <li>Surveiller la conscience et la respiration</li>
+                            <li>NE PAS administrer d'insuline</li>
+                            <li>Préparer les informations médicales de l'enfant</li>
+                            <li>Si inconscient, PLS et surveillance</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: Enfants et activités -->
+        <section id="enfants">
+            <h2>Enfants Diabétiques et Activités</h2>
+            <p class="section-intro">L'enfant diabétique peut participer à toutes les activités comme les autres enfants, avec quelques adaptations. Votre rôle est de permettre son inclusion tout en assurant sa sécurité.</p>
+            
+            <h3>Gestion des activités</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">Activités sportives</div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Avant :</strong> Contrôler la glycémie (idéalement > 120 mg/dL)</li>
+                            <li><strong>Pendant :</strong> Surveiller les symptômes d'hypoglycémie</li>
+                            <li><strong>Après :</strong> Risque d'hypoglycémie retardée (donner collation)</li>
+                            <li>Adapter l'insulinothérapie avec l'équipe médicale</li>
+                            <li>Prévoir des collations et du sucre rapide</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Baignade</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Retirer la pompe à insuline avant la baignade</li>
+                            <li>Avoir du sucre rapide au bord du bassin</li>
+                            <li>Limiter la durée (risque accru d'hypoglycémie)</li>
+                            <li>Surveillance accrue pendant et après</li>
+                            <li>Éviter l'eau très froide (augmente la glycémie)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Randonnées et excursions</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Emporter double ration de sucre rapide</li>
+                            <li>Prévoir collations supplémentaires</li>
+                            <li>Emporter le glucomètre et le matériel</li>
+                            <li>Avoir les coordonnées d'urgence</li>
+                            <li>Adapter les doses d'insuline avec les parents</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Stratégies d'inclusion</h3>
+            <ul>
+                <li><strong>Éducation du groupe :</strong> Expliquer simplement le diabète aux autres enfants pour prévenir les moqueries</li>
+                <li><strong>Discrétion :</strong> Permettre à l'enfant de faire ses contrôles et injections en privé s'il le souhaite</li>
+                <li><strong>Autonomie :</strong> Encourager l'enfant à gérer son diabète selon son âge et ses capacités</li>
+                <li><strong>Communication :</strong> Établir un dialogue avec l'enfant et ses parents sur ses besoins spécifiques</li>
+            </ul>
+        </section>
+        
+        <!-- Section 5: Trousse d'urgence -->
+        <section id="trousse">
+            <h2>Trousse d'Urgence Diabète</h2>
+            <p class="section-intro">Chaque enfant diabétique doit avoir sa propre trousse d'urgence accessible en permanence. En tant qu'animateur, vous devez connaître son contenu et son emplacement.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">Matériel de surveillance</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Glucomètre avec piles chargées</li>
+                            <li>Bandelettes de test en quantité suffisante</li>
+                            <li>Lancettes et autopiqueur</li>
+                            <li>Tampons alcoolisés</li>
+                            <li>Journal de glycémie ou application</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Traitement hypoglycémie</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Sucre rapide (jus de fruit, morceaux de sucre, gel glucidique)</li>
+                            <li>Glucagon (injection ou nasal) - Baqsimi®</li>
+                            <li>Collations (biscuits, barres de céréales, fruits)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Traitement hyperglycémie</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Bandelettes de mesure des cétones</li>
+                            <li>Insuline (réservée aux parents ou personnel formé)</li>
+                            <li>Stylos ou pompe à insuline + recharges</li>
+                            <li>Eau</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Documents indispensables</h3>
+            <ul>
+                <li><strong>Projet d'Accueil Individualisé (PAI) :</strong> Signé par le médecin scolaire, les parents et la direction</li>
+                <li><strong>Fiche de procédures d'urgence :</strong> Avec numéros de contact et protocoles spécifiques</li>
+                <li><strong>Ordonnance médicale :</strong> Copie de l'ordonnance avec les traitements</li>
+                <li><strong>Carte de diabétique :</strong> Avec coordonnées des parents et du médecin traitant</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Croix-Rouge Française</h3>
+                <p>Engagée dans la prévention, la formation et le secourisme depuis plus de 150 ans.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="#">Formations Secourisme</a></li>
+                    <li><a href="#">Guides pratiques</a></li>
+                    <li><a href="#">Fiches mémo urgence</a></li>
+                    <li><a href="#">Vidéos de formation</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="#">Association Française des Diabétiques</a></li>
+                    <li><a href="#">Diabète et Enfants</a></li>
+                    <li><a href="#">Ministère de la Santé</a></li>
+                    <li><a href="#">Protocoles PAI</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 09 70 28 30 00</li>
+                    <li><i class="fas fa-envelope"></i> contact@croix-rouge.fr</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 98 rue Didot, 75014 Paris</li>
+                    <li><i class="fas fa-globe"></i> www.croix-rouge.fr</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Croix-Rouge Française - Tous droits réservés | Formation Diabète Type 1 pour Animateurs</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Highlight current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Simple animation for cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.card, .tool-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
