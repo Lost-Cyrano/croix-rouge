@@ -51,212 +51,215 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Conteneur avec flex et gestion intelligente de la hauteur */
     .page-content {
       min-height: 100%;
       display: flex;
       flex-direction: column;
-      padding: clamp(14px, 2.5vh, 24px) clamp(16px, 4vw, 28px);
-      gap: clamp(14px, 2.2vh, 22px);
+      padding: clamp(12px, 2vh, 20px) clamp(14px, 3vw, 24px);
+      gap: clamp(12px, 2vh, 20px);
     }
 
-    /* Cartes avec plus d'espace */
+    /* Cartes */
     .card {
       background: white;
-      border-radius: clamp(20px, 5vw, 32px);
-      padding: clamp(16px, 2.5vh, 24px) clamp(18px, 4vw, 28px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+      border-radius: clamp(20px, 4vw, 28px);
+      padding: clamp(14px, 2.2vh, 22px) clamp(16px, 3.5vw, 24px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       border: 1px solid #eef2f8;
     }
 
     .section-title {
       font-weight: 700;
-      font-size: clamp(16px, 4.5vw, 20px);
+      font-size: clamp(15px, 4vw, 18px);
       color: #0f172a;
-      margin-bottom: clamp(14px, 2.2vh, 20px);
-      letter-spacing: -0.3px;
+      margin-bottom: clamp(12px, 2vh, 18px);
       padding-left: 8px;
       border-left: 4px solid #2563eb;
     }
 
-    /* Grille 2x2 pour Bilan UV */
+    /* Grille 2x2 Bilan UV */
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(12px, 2.5vw, 18px);
+      gap: clamp(10px, 2vw, 14px);
     }
 
     .chip {
       display: flex;
       align-items: center;
-      gap: clamp(10px, 2vw, 14px);
+      gap: clamp(8px, 1.8vw, 12px);
       background: #f8fafc;
-      padding: clamp(12px, 2vh, 18px) clamp(14px, 3vw, 20px);
-      border-radius: clamp(50px, 10vw, 80px);
+      padding: clamp(10px, 1.8vh, 14px) clamp(12px, 2.5vw, 16px);
+      border-radius: 60px;
       border: 1px solid #e2e8f0;
-      transition: all 0.12s ease;
       cursor: pointer;
     }
     .chip:active { transform: scale(0.98); background: #f1f5f9; }
-
     .chip input {
-      width: clamp(20px, 4.5vw, 26px);
-      height: clamp(20px, 4.5vw, 26px);
+      width: clamp(18px, 4vw, 22px);
+      height: clamp(18px, 4vw, 22px);
       cursor: pointer;
       accent-color: #2563eb;
-      flex-shrink: 0;
     }
     .chip label {
-      font-size: clamp(14px, 3.8vw, 17px);
+      font-size: clamp(13px, 3.2vw, 15px);
       font-weight: 600;
       color: #1e293b;
       cursor: pointer;
       flex: 1;
     }
 
-    /* Neuro : wrap avec plus d'espace */
-    .neuro-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(10px, 2vw, 14px);
+    /* Grille fixe 2 colonnes pour Neurologique */
+    .neuro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(8px, 1.8vw, 12px);
     }
-    .neuro-chip {
-      display: inline-flex;
+    .neuro-item {
+      display: flex;
       align-items: center;
       gap: clamp(8px, 1.8vw, 12px);
       background: #f8fafc;
-      padding: clamp(8px, 1.5vh, 12px) clamp(14px, 3vw, 18px);
-      border-radius: 60px;
+      padding: clamp(8px, 1.5vh, 12px) clamp(10px, 2vw, 14px);
+      border-radius: 50px;
       border: 1px solid #e2e8f0;
     }
-    .neuro-chip input {
-      width: clamp(18px, 4vw, 22px);
-      height: clamp(18px, 4vw, 22px);
+    .neuro-item input {
+      width: clamp(17px, 3.8vw, 20px);
+      height: clamp(17px, 3.8vw, 20px);
       accent-color: #2563eb;
     }
-    .neuro-chip label {
-      font-size: clamp(13px, 3.2vw, 15px);
+    .neuro-item label {
+      font-size: clamp(12px, 2.8vw, 14px);
       font-weight: 500;
-      white-space: nowrap;
     }
-    .pci-group {
-      display: inline-flex;
+    .pci-item {
+      display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: #f8fafc;
-      padding: clamp(8px, 1.5vh, 12px) clamp(14px, 3vw, 18px);
-      border-radius: 60px;
+      padding: 8px 12px;
+      border-radius: 50px;
       border: 1px solid #e2e8f0;
+      flex-wrap: wrap;
     }
-    .pci-group input[type="checkbox"] {
+    .pci-item input[type="checkbox"] {
       width: 18px;
       height: 18px;
     }
-    .pci-group label {
+    .pci-item label {
       font-size: 13px;
       font-weight: 500;
     }
     .pci-duree {
-      width: 70px;
-      padding: 6px 8px;
+      width: 65px;
+      padding: 5px 8px;
       border: 1px solid #cbd5e1;
-      border-radius: 40px;
-      font-size: 14px;
+      border-radius: 30px;
+      font-size: 13px;
       text-align: center;
-      background: white;
     }
 
-    /* Double colonne Respi / Circu avec hauteur optimisée */
-    .two-columns {
-      display: flex;
-      gap: clamp(16px, 3vw, 24px);
-      flex: 1;
+    /* Page 2 : structure en 3 bandes équilibrées */
+    .bande-respi, .bande-circu, .bande-crono {
+      width: 100%;
     }
-    .column-card {
-      flex: 1;
+
+    .bande-respi, .bande-circu {
       background: white;
-      border-radius: clamp(24px, 5vw, 36px);
-      padding: clamp(16px, 2.5vh, 22px) clamp(14px, 3vw, 20px);
+      border-radius: 28px;
+      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 3.5vw, 24px);
       border: 1px solid #eef2f8;
+    }
+
+    .bande-title {
+      font-weight: 700;
+      font-size: clamp(16px, 4.2vw, 20px);
+      margin-bottom: clamp(14px, 2vh, 20px);
+      text-align: center;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    /* Grille pour les lignes de saisie */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(12px, 2vw, 18px);
+    }
+
+    .form-field {
       display: flex;
       flex-direction: column;
-      gap: clamp(14px, 2.2vh, 20px);
+      gap: 6px;
     }
-    .column-title {
-      font-size: clamp(18px, 4.8vw, 22px);
-      font-weight: 700;
-      text-align: center;
-      padding-bottom: 10px;
-      border-bottom: 2.5px solid #e2e8f0;
-      color: #0f172a;
-    }
-    .input-block {
-      background: #fafcff;
-      border-radius: 20px;
-      padding: clamp(10px, 1.8vh, 16px) clamp(14px, 3vw, 18px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      border: 1px solid #edf2f7;
-    }
-    .input-block label {
-      font-size: clamp(14px, 3.5vw, 16px);
+    .form-field label {
+      font-size: clamp(12px, 3vw, 14px);
       font-weight: 600;
-      color: #1e293b;
+      color: #475569;
     }
-    .input-block input {
-      font-size: clamp(16px, 4vw, 19px);
-      padding: clamp(8px, 1.5vh, 12px) clamp(12px, 2.5vw, 16px);
-      border: 1.5px solid #cbd5e1;
+    .form-field input {
+      font-size: clamp(16px, 4vw, 20px);
+      padding: clamp(10px, 1.8vh, 14px) clamp(12px, 2.5vw, 16px);
+      border: 1.5px solid #e2e8f0;
       border-radius: 50px;
-      width: clamp(90px, 22vw, 120px);
       text-align: center;
       background: white;
       font-weight: 500;
+      width: 100%;
     }
-    .bp-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .form-field input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
     }
-    .bp-row input {
-      width: clamp(80px, 20vw, 100px);
-    }
-    .inline-chips {
+
+    .checkbox-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
+      gap: 12px;
+      margin-top: 8px;
     }
-    .mini-chip {
-      display: inline-flex;
+    .checkbox-label {
+      display: flex;
       align-items: center;
       gap: 8px;
       background: #f8fafc;
-      padding: 8px 16px;
-      border-radius: 50px;
+      padding: 8px 14px;
+      border-radius: 40px;
       border: 1px solid #e2e8f0;
+      cursor: pointer;
     }
-    .mini-chip input {
+    .checkbox-label input {
       width: 18px;
       height: 18px;
+      cursor: pointer;
+      accent-color: #2563eb;
     }
-    .mini-chip label {
-      font-size: 13px;
+    .checkbox-label span {
+      font-size: clamp(12px, 2.8vw, 14px);
       font-weight: 500;
     }
 
-    /* Chrono (countdown) plus grand */
-    .chrono-card {
+    /* Ref conditionnel */
+    .ref-container {
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+    .ref-hidden {
+      display: none;
+    }
+
+    /* Chrono bande */
+    .bande-crono {
       background: white;
-      border-radius: clamp(28px, 6vw, 48px);
-      padding: clamp(16px, 2.5vh, 24px) clamp(20px, 5vw, 32px);
+      border-radius: 28px;
+      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 3.5vw, 24px);
+      border: 1px solid #eef2f8;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(24px, 6vw, 40px);
+      gap: clamp(20px, 5vw, 40px);
       flex-wrap: wrap;
     }
     .chrono-btn {
@@ -264,88 +267,60 @@
       border: none;
       color: white;
       font-weight: 700;
-      padding: clamp(12px, 2vh, 18px) clamp(28px, 6vw, 40px);
-      border-radius: 80px;
-      font-size: clamp(18px, 4.5vw, 22px);
+      padding: clamp(10px, 1.8vh, 16px) clamp(24px, 5vw, 36px);
+      border-radius: 60px;
+      font-size: clamp(16px, 4vw, 20px);
       cursor: pointer;
-      transition: 0.1s;
-      box-shadow: 0 2px 6px rgba(37,99,235,0.2);
     }
-    .chrono-btn:active { transform: scale(0.97); background: #1d4ed8; }
+    .chrono-btn:active { transform: scale(0.97); }
     .chrono-display {
-      font-family: 'SF Mono', 'Courier New', monospace;
-      font-size: clamp(38px, 10vw, 58px);
+      font-family: monospace;
+      font-size: clamp(32px, 8vw, 52px);
       font-weight: 800;
       background: #f1f5f9;
-      padding: clamp(8px, 1.5vh, 14px) clamp(24px, 5vw, 40px);
-      border-radius: 80px;
-      letter-spacing: 4px;
-      color: #0f172a;
+      padding: clamp(6px, 1.2vh, 12px) clamp(20px, 4vw, 36px);
+      border-radius: 70px;
+      letter-spacing: 3px;
     }
 
-    /* Indicateur discret mais visible */
+    /* Indicateur de page */
     .page-indicator {
       position: fixed;
-      bottom: max(14px, 2.5vh);
+      bottom: max(12px, 2vh);
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 14px;
+      gap: 12px;
       z-index: 30;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
-      padding: 8px 20px;
-      border-radius: 60px;
+      padding: 6px 18px;
+      border-radius: 50px;
       pointer-events: none;
     }
     .ind-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
       transition: all 0.2s;
     }
     .ind-dot.active {
-      width: 28px;
+      width: 26px;
       background: #1e293b;
-      border-radius: 6px;
+      border-radius: 5px;
     }
 
-    /* Ajustements pour hauteur généreuse : on écrit plus gros */
+    /* Responsive global */
     @media (min-height: 750px) {
-      .page-content { gap: 22px; }
-      .chip label { font-size: 16px; }
-      .neuro-chip label { font-size: 15px; }
-      .input-block label { font-size: 16px; }
-      .input-block input { font-size: 18px; }
-      .column-title { font-size: 20px; }
+      .form-field input { font-size: 18px; padding: 12px 16px; }
+      .checkbox-label span { font-size: 14px; }
     }
-
-    @media (min-height: 850px) {
-      .page-content { gap: 28px; }
-      .chip { padding: 16px 20px; }
-      .chip label { font-size: 18px; }
-      .neuro-chip { padding: 10px 18px; }
-      .neuro-chip label { font-size: 16px; }
-      .section-title { font-size: 22px; margin-bottom: 20px; }
-      .input-block { padding: 14px 18px; }
-      .input-block input { font-size: 20px; width: 110px; }
-      .column-title { font-size: 24px; }
+    @media (min-width: 1000px) {
+      .page-content { max-width: 900px; margin: 0 auto; width: 100%; }
     }
-
-    /* Tablettes / petits écrans larges */
-    @media (max-width: 700px) and (min-height: 800px) {
-      .page-content { gap: 18px; }
-      .chip label { font-size: 15px; }
-    }
-
-    /* Centrage pour très grands écrans */
-    @media (min-width: 1100px) {
-      .page-content { max-width: 1000px; margin: 0 auto; width: 100%; }
-    }
-
-    input:disabled { opacity: 0.5; background: #f8fafc; }
-    input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { opacity: 0.5; }
   </style>
 </head>
 <body>
@@ -368,81 +343,94 @@
 
         <div class="card">
           <div class="section-title">Neurologique</div>
-          <div class="neuro-wrap">
-            <div class="neuro-chip"><input type="checkbox" id="pasYeux"><label for="pasYeux">N'ouvre pas les yeux</label></div>
-            <div class="neuro-chip"><input type="checkbox" id="repVerbale"><label for="repVerbale">Rép. verbale non-adaptée</label></div>
-            <div class="neuro-chip"><input type="checkbox" id="desorientation"><label for="desorientation">Désorientation</label></div>
-            <div class="neuro-chip"><input type="checkbox" id="motriceAdaptee"><label for="motriceAdaptee">Rep. motrice adaptee</label></div>
-            <div class="neuro-chip"><input type="checkbox" id="deficitMoteur"><label for="deficitMoteur">Deficit moteur</label></div>
-            <div class="pci-group">
+          <div class="neuro-grid">
+            <div class="neuro-item"><input type="checkbox" id="pasYeux"><label for="pasYeux">N'ouvre pas les yeux</label></div>
+            <div class="neuro-item"><input type="checkbox" id="repVerbale"><label for="repVerbale">Rép. verbale non-adaptée</label></div>
+            <div class="neuro-item"><input type="checkbox" id="desorientation"><label for="desorientation">Désorientation</label></div>
+            <div class="neuro-item"><input type="checkbox" id="motriceAdaptee"><label for="motriceAdaptee">Rep. motrice adaptee</label></div>
+            <div class="neuro-item"><input type="checkbox" id="deficitMoteur"><label for="deficitMoteur">Deficit moteur</label></div>
+            <div class="pci-item">
               <input type="checkbox" id="pciCheck">
               <label>PCI</label>
               <input type="number" id="pciDuree" class="pci-duree" placeholder="min" disabled>
             </div>
-            <div class="neuro-chip"><input type="checkbox" id="anysocorie"><label for="anysocorie">Anysocorie</label></div>
+            <div class="neuro-item"><input type="checkbox" id="anysocorie"><label for="anysocorie">Anysocorie</label></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PAGE 2 : Respiratoire + Circulatoire + Countdown -->
+    <!-- PAGE 2 : 3 bandes équilibrées -->
     <div class="page">
       <div class="page-content">
-        <div class="two-columns">
-          <!-- Respiratoire -->
-          <div class="column-card">
-            <div class="column-title">Respiratoire</div>
-            <div class="input-block">
-              <label>FR</label>
-              <input type="number" id="fr" placeholder="/min">
+        <!-- Bande Respiratoire -->
+        <div class="bande-respi">
+          <div class="bande-title">Respiratoire</div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>FR (/min)</label>
+              <input type="number" id="fr" placeholder="—">
             </div>
-            <div class="input-block">
-              <label>SpO₂</label>
-              <input type="number" id="spo2" placeholder="%">
-            </div>
-            <div class="inline-chips">
-              <div class="mini-chip"><input type="checkbox" id="ventAmple"><label for="ventAmple">Ventilation Ample</label></div>
-              <div class="mini-chip"><input type="checkbox" id="ventReguliere"><label for="ventReguliere">Ventilation reguliere</label></div>
+            <div class="form-field">
+              <label>SpO₂ (%)</label>
+              <input type="number" id="spo2" placeholder="—">
             </div>
           </div>
-
-          <!-- Circulatoire -->
-          <div class="column-card">
-            <div class="column-title">Circulatoire</div>
-            <div class="input-block">
-              <label>FC</label>
-              <input type="number" id="fc" placeholder="/min">
-            </div>
-            <div class="input-block">
-              <label>TA</label>
-              <div class="bp-row">
-                <input type="number" id="taSys" placeholder="sys" maxlength="3"> <span style="font-weight:600;">/</span> <input type="number" id="taDia" placeholder="dia" maxlength="2">
-              </div>
-            </div>
-            <div class="input-block">
-              <label>Ref</label>
-              <input type="checkbox" id="refCheck" style="width: 20px; height: 20px;">
-              <div class="bp-row" id="refInputsGroup">
-                <input type="number" id="refSys" placeholder="sys" disabled> <span>/</span> <input type="number" id="refDia" placeholder="dia" disabled>
-              </div>
-            </div>
-            <div class="inline-chips">
-              <div class="mini-chip"><input type="checkbox" id="irregulier"><label for="irregulier">Irregulier</label></div>
-              <div class="mini-chip"><input type="checkbox" id="filant"><label for="filant">Filant</label></div>
-              <div class="mini-chip"><input type="checkbox" id="poulsRadial"><label for="poulsRadial">Pouls Radial</label></div>
-            </div>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" id="ventAmple"><span>Ventilation Ample</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="ventReguliere"><span>Ventilation régulière</span></label>
           </div>
         </div>
 
-        <!-- Countdown 1 minute -->
-        <div class="chrono-card">
+        <!-- Bande Circulatoire -->
+        <div class="bande-circu">
+          <div class="bande-title">Circulatoire</div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>FC (/min)</label>
+              <input type="number" id="fc" placeholder="—">
+            </div>
+            <div class="form-field">
+              <label>TA (sys/dia)</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="number" id="taSys" placeholder="sys" style="flex:1;" maxlength="3">
+                <span style="font-size: 20px; align-self: center;">/</span>
+                <input type="number" id="taDia" placeholder="dia" style="flex:1;" maxlength="2">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ref avec conditionnel -->
+          <label class="checkbox-label" style="display: inline-flex; margin-top: 4px;">
+            <input type="checkbox" id="refCheck"><span>Ref</span>
+          </label>
+          <div id="refContainer" class="ref-hidden">
+            <div class="form-field" style="margin-top: 10px;">
+              <label>TA Ref (sys/dia)</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="number" id="refSys" placeholder="sys" style="flex:1;" disabled maxlength="3">
+                <span style="font-size: 20px; align-self: center;">/</span>
+                <input type="number" id="refDia" placeholder="dia" style="flex:1;" disabled maxlength="2">
+              </div>
+            </div>
+          </div>
+
+          <div class="checkbox-group" style="margin-top: 12px;">
+            <label class="checkbox-label"><input type="checkbox" id="irregulier"><span>Irregulier</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="filant"><span>Filant</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="poulsRadial"><span>Pouls Radial</span></label>
+          </div>
+        </div>
+
+        <!-- Bande Chrono -->
+        <div class="bande-crono">
           <button class="chrono-btn" id="startCronoBtn">Démarrer</button>
           <span class="chrono-display" id="cronoDisplay">01:00</span>
         </div>
       </div>
     </div>
 
-    <!-- PAGE 3 : Réservée -->
+    <!-- PAGE 3 -->
     <div class="page">
       <div class="page-content">
         <div class="card" style="text-align: center; padding: 40px 24px;">
@@ -462,12 +450,13 @@
 
 <script>
   (function() {
-    // ----- SWIPE 3 PAGES -----
+    // SWIPE avec arrêt obligatoire sur chaque page (snap forcé)
     const container = document.getElementById('swipeContainer');
     const dots = document.querySelectorAll('.ind-dot');
     let activeIndex = 0;
     let isProgrammatic = false;
-    let scrollEndTimer = null;
+    let isSnapping = false;
+    let snapTimeout = null;
 
     function updateIndicator(index) {
       dots.forEach((dot, i) => {
@@ -477,47 +466,69 @@
       activeIndex = index;
     }
 
-    function getCurrentIndex() {
-      if (!container) return 0;
-      const scrollPos = container.scrollLeft;
-      const width = container.clientWidth;
-      if (width === 0) return 0;
-      return Math.round(scrollPos / width);
+    function getTargetScroll(index) {
+      return index * container.clientWidth;
     }
 
+    function snapToPage(index, behavior = 'smooth') {
+      if (isSnapping) return;
+      isSnapping = true;
+      isProgrammatic = true;
+      const target = getTargetScroll(index);
+      container.scrollTo({ left: target, behavior: behavior });
+      setTimeout(() => {
+        isProgrammatic = false;
+        if (snapTimeout) clearTimeout(snapTimeout);
+        snapTimeout = setTimeout(() => { isSnapping = false; }, 400);
+      }, 350);
+      updateIndicator(index);
+    }
+
+    let scrollEndTimer = null;
     function onScrollHandler() {
       if (isProgrammatic) return;
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
-      const idx = getCurrentIndex();
-      updateIndicator(idx);
+      
       scrollEndTimer = setTimeout(() => {
         const width = container.clientWidth;
-        const target = idx * width;
-        if (Math.abs(container.scrollLeft - target) > 3) {
-          isProgrammatic = true;
-          container.scrollTo({ left: target, behavior: 'smooth' });
-          setTimeout(() => { isProgrammatic = false; }, 300);
+        const currentScroll = container.scrollLeft;
+        const rawIndex = currentScroll / width;
+        const newIndex = Math.round(rawIndex);
+        if (newIndex !== activeIndex && newIndex >= 0 && newIndex <= 2) {
+          snapToPage(newIndex, 'smooth');
+        } else if (Math.abs(currentScroll - getTargetScroll(activeIndex)) > 5) {
+          snapToPage(activeIndex, 'smooth');
         }
         scrollEndTimer = null;
-      }, 50);
+      }, 60);
     }
 
     container.addEventListener('scroll', onScrollHandler);
     container.addEventListener('scrollend', () => {
-      isProgrammatic = false;
-      updateIndicator(getCurrentIndex());
+      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      const width = container.clientWidth;
+      const finalIndex = Math.round(container.scrollLeft / width);
+      if (finalIndex !== activeIndex) {
+        snapToPage(finalIndex, 'auto');
+      } else {
+        const target = getTargetScroll(activeIndex);
+        if (Math.abs(container.scrollLeft - target) > 2) {
+          snapToPage(activeIndex, 'smooth');
+        }
+      }
     });
 
     function initSwipe() {
       container.scrollLeft = 0;
       updateIndicator(0);
+      activeIndex = 0;
     }
 
     let resizeTimer;
     function onResize() {
       if (resizeTimer) clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        const target = activeIndex * container.clientWidth;
+        const target = getTargetScroll(activeIndex);
         isProgrammatic = true;
         container.scrollTo({ left: target, behavior: 'auto' });
         setTimeout(() => { isProgrammatic = false; }, 100);
@@ -529,6 +540,7 @@
     else initSwipe();
 
     // ----- CONDITIONNELS -----
+    // PCI
     const pciCheck = document.getElementById('pciCheck');
     const pciDuree = document.getElementById('pciDuree');
     function togglePCI() {
@@ -538,14 +550,24 @@
     pciCheck.addEventListener('change', togglePCI);
     togglePCI();
 
+    // Ref conditionnel (affichage/masquage)
     const refCheck = document.getElementById('refCheck');
+    const refContainer = document.getElementById('refContainer');
     const refSys = document.getElementById('refSys');
     const refDia = document.getElementById('refDia');
+    
     function toggleRef() {
-      const isChecked = refCheck.checked;
-      refSys.disabled = !isChecked;
-      refDia.disabled = !isChecked;
-      if (!isChecked) { refSys.value = ''; refDia.value = ''; }
+      if (refCheck.checked) {
+        refContainer.classList.remove('ref-hidden');
+        refSys.disabled = false;
+        refDia.disabled = false;
+      } else {
+        refContainer.classList.add('ref-hidden');
+        refSys.disabled = true;
+        refDia.disabled = true;
+        refSys.value = '';
+        refDia.value = '';
+      }
     }
     refCheck.addEventListener('change', toggleRef);
     toggleRef();
@@ -586,22 +608,22 @@
     document.getElementById('refSys').maxLength = 3;
     document.getElementById('refDia').maxLength = 2;
 
-    // Ajustement pour garantir qu'aucun scroll vertical n'est nécessaire
-    function ensureNoVerticalScroll() {
+    // Ajustement responsive pour éviter tout scroll vertical
+    function adjustHeight() {
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => {
-        if (page.scrollHeight > page.clientHeight + 5) {
+        if (page.scrollHeight > page.clientHeight + 8) {
           const content = page.querySelector('.page-content');
           if (content) {
-            let gap = getComputedStyle(content).gap;
-            let gapVal = parseInt(gap);
+            let currentGap = getComputedStyle(content).gap;
+            let gapVal = parseInt(currentGap);
             if (gapVal > 8) content.style.gap = '8px';
           }
         }
       });
     }
-    window.addEventListener('resize', () => setTimeout(ensureNoVerticalScroll, 80));
-    setTimeout(ensureNoVerticalScroll, 100);
+    window.addEventListener('resize', () => setTimeout(adjustHeight, 60));
+    setTimeout(adjustHeight, 100);
   })();
 </script>
 </body>
