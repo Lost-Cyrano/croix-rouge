@@ -13,8 +13,8 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f8fafc;
       overflow: hidden;
       position: fixed;
       width: 100%;
@@ -55,280 +55,327 @@
     }
 
     .page-a {
-      background: #f5f5f5;
+      background: #f8fafc;
     }
 
     .page-b {
-      background: #e0e0e0;
+      background: #eef2f6;
     }
 
+    /* Conteneur principal avec flex et gestion de la hauteur */
     .content {
-      padding: 2vw 3vw;
-      max-width: 100%;
-      height: 100%;
+      min-height: 100%;
       display: flex;
       flex-direction: column;
+      padding: 12px 16px;
+      gap: 12px;
     }
 
-    /* Bilan UV - compact */
-    .uv-section {
-      margin-bottom: 2vw;
-      flex-shrink: 0;
+    /* Style commun des cartes */
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid #e9ecef;
     }
 
-    .uv-label {
-      font-size: 3.5vw;
-      font-weight: 600;
-      margin-bottom: 1vw;
-      color: #333;
+    /* Grille 2x2 pour Bilan UV */
+    .uv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
     }
 
-    .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5vw;
-    }
-
-    .checkbox-item {
+    .uv-item {
       display: flex;
       align-items: center;
-      gap: 0.8vw;
-      font-size: 3vw;
-      background: white;
-      padding: 1vw 2vw;
-      border-radius: 2vw;
-      border: 0.2vw solid #ddd;
-    }
-
-    .checkbox-item input {
-      width: 3.5vw;
-      height: 3.5vw;
-      margin: 0;
+      gap: 10px;
+      background: #f1f5f9;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
       cursor: pointer;
     }
 
-    .checkbox-item label {
+    .uv-item input {
+      width: 18px;
+      height: 18px;
       cursor: pointer;
+      accent-color: #2563eb;
     }
 
-    /* Layout fonctions vitales : Neuro bande, puis Respi (gauche) / Circu (droite) */
-    .neuro-section {
-      background: #e8e8e8;
-      border-radius: 2vw;
-      padding: 1.5vw 2vw;
-      margin-bottom: 2vw;
-      flex-shrink: 0;
+    .uv-item label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1e293b;
+      cursor: pointer;
+      flex: 1;
     }
 
-    .neuro-title {
-      font-size: 3.2vw;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 1vw;
-      color: #1a1a1a;
-    }
-
+    /* Neuro en flex wrap avec grille interne */
     .neuro-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5vw;
+      gap: 8px;
+      margin-top: 8px;
     }
 
-    .neuro-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8vw;
-      font-size: 2.8vw;
-      background: white;
-      padding: 0.8vw 2vw;
-      border-radius: 2vw;
-      border: 0.2vw solid #ccc;
-    }
-
-    .neuro-item input {
-      width: 3.2vw;
-      height: 3.2vw;
-    }
-
-    .pci-row {
+    .neuro-chip {
       display: inline-flex;
       align-items: center;
-      gap: 1vw;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px 14px;
+      border-radius: 40px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .neuro-chip input {
+      width: 16px;
+      height: 16px;
+      accent-color: #2563eb;
+    }
+
+    .neuro-chip label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+
+    .pci-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 6px 14px;
+      border-radius: 40px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .pci-wrapper input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pci-wrapper label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .pci-duree-input {
+      width: 55px;
+      padding: 4px 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      font-size: 12px;
+      text-align: center;
       background: white;
-      padding: 0.5vw 2vw;
-      border-radius: 2vw;
-      border: 0.2vw solid #ccc;
     }
 
-    .pci-row label {
-      font-size: 2.8vw;
+    /* Chrono */
+    .crono-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .pci-row input[type="checkbox"] {
-      width: 3.2vw;
-      height: 3.2vw;
+    .crono-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
     }
 
-    .pci-row input[type="number"] {
-      width: 12vw;
-      font-size: 2.8vw;
-      padding: 0.5vw;
-      border: 0.2vw solid #ccc;
-      border-radius: 1.5vw;
+    .crono-display {
+      font-size: 24px;
+      font-weight: 600;
+      font-family: monospace;
+      background: #f1f5f9;
+      padding: 4px 16px;
+      border-radius: 40px;
+      letter-spacing: 1px;
     }
 
-    /* Double colonne Respi / Circu */
+    /* Row Respi / Circu */
     .vital-row {
       display: flex;
-      gap: 2vw;
+      gap: 14px;
       flex: 1;
-      min-height: 0;
-      margin-bottom: 1vw;
     }
 
-    .respi-col {
+    .col {
       flex: 1;
-      background: #f0f0f0;
-      border-radius: 2vw;
-      padding: 1.5vw;
+      background: white;
+      border-radius: 20px;
+      padding: 14px 12px;
+      border: 1px solid #e9ecef;
       display: flex;
       flex-direction: column;
-      gap: 1.5vw;
-    }
-
-    .circu-col {
-      flex: 1;
-      background: #f0f0f0;
-      border-radius: 2vw;
-      padding: 1.5vw;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5vw;
+      gap: 12px;
     }
 
     .col-title {
-      font-size: 3.5vw;
+      font-size: 15px;
       font-weight: 600;
       text-align: center;
-      margin-bottom: 0.5vw;
-      color: #1a1a1a;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e2e8f0;
     }
 
-    .input-block {
-      background: white;
-      border-radius: 2vw;
-      padding: 1vw 2vw;
-      border: 0.2vw solid #ddd;
+    .input-row {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 8px 12px;
       display: flex;
       align-items: center;
-      gap: 2vw;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px solid #eef2f6;
     }
 
-    .input-block label {
-      font-size: 3vw;
+    .input-row label {
+      font-size: 13px;
       font-weight: 500;
-      min-width: 18vw;
+      color: #334155;
     }
 
-    .input-block input {
-      font-size: 3vw;
-      padding: 1vw 1.5vw;
-      border: 0.2vw solid #ccc;
-      border-radius: 2vw;
-      width: 20vw;
+    .input-row input {
+      font-size: 14px;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 30px;
+      width: 80px;
       text-align: center;
-    }
-
-    .input-block .small-input {
-      width: 15vw;
+      background: white;
     }
 
     .bp-group {
       display: flex;
       align-items: center;
-      gap: 1vw;
+      gap: 6px;
     }
 
     .bp-group input {
-      width: 16vw;
+      width: 70px;
     }
 
-    .crono-block {
-      background: #e0e0e0;
-      border-radius: 2vw;
-      padding: 1.5vw 2vw;
+    .checkbox-group-inline {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3vw;
-      margin-bottom: 1.5vw;
-      flex-shrink: 0;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
     }
 
-    .crono-btn {
-      background: #2196f3;
-      color: white;
-      border: none;
-      padding: 1.2vw 3vw;
-      border-radius: 2vw;
-      font-size: 3.2vw;
-      cursor: pointer;
+    .inline-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 30px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .inline-chip input {
+      width: 16px;
+      height: 16px;
+    }
+
+    .inline-chip label {
+      font-size: 12px;
       font-weight: 500;
     }
 
-    .crono-display {
-      font-size: 4vw;
-      font-weight: 600;
-      font-family: monospace;
-      background: #fff;
-      padding: 1vw 2vw;
-      border-radius: 2vw;
-      min-width: 20vw;
-      text-align: center;
+    /* Éléments conditionnels cachés */
+    .hidden-conditional {
+      display: none;
     }
 
-    .checkbox-group-vertical {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5vw;
-      margin-top: 0.5vw;
+    /* Ajustements hauteur : tout doit tenir sans scroll vertical */
+    @media (max-height: 700px) {
+      .content {
+        gap: 8px;
+        padding: 10px 14px;
+      }
+      .card {
+        padding: 10px 12px;
+      }
+      .col {
+        padding: 10px 8px;
+        gap: 8px;
+      }
+      .input-row {
+        padding: 6px 10px;
+      }
+      .uv-item {
+        padding: 6px 10px;
+      }
+      .neuro-chip, .pci-wrapper, .inline-chip {
+        padding: 4px 10px;
+      }
+    }
+
+    @media (min-height: 800px) {
+      .content {
+        gap: 14px;
+      }
+    }
+
+    /* Pour les très grands écrans, centrer */
+    @media (min-width: 900px) {
+      .content {
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+      }
     }
 
     .indicator {
       position: fixed;
-      bottom: 3vw;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 2vw;
-      z-index: 10;
+      gap: 10px;
+      z-index: 20;
       pointer-events: none;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: 40px;
     }
 
     .indicator-dot {
-      width: 1.8vw;
-      height: 1.8vw;
-      background: rgba(0, 0, 0, 0.3);
+      width: 6px;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
       transition: all 0.2s ease;
     }
 
     .indicator-dot.active {
-      background: rgba(0, 0, 0, 0.8);
-      transform: scale(1.2);
+      width: 18px;
+      background: #1e2a3e;
+      border-radius: 4px;
     }
 
-    /* Ajustements pour petits écrans */
-    @media (max-width: 480px) {
-      .input-block label {
-        min-width: 20vw;
-        font-size: 3.2vw;
-      }
-      .bp-group input {
-        width: 18vw;
-      }
+    button, .uv-item, .neuro-chip, .pci-wrapper, .inline-chip {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
     }
   </style>
 </head>
@@ -336,99 +383,100 @@
 
 <div class="swipe-container" id="swipeContainer">
   <div class="pages-wrapper">
-    <!-- PAGE A - Bilan PSE -->
+    <!-- PAGE A -->
     <div class="page page-a">
       <div class="content">
-        <!-- Bilan UV (sans titre principal) -->
-        <div class="uv-section">
-          <div class="uv-label">Bilan UV</div>
-          <div class="checkbox-group">
-            <div class="checkbox-item"><input type="checkbox" id="obva"><label for="obva">OBVA</label></div>
-            <div class="checkbox-item"><input type="checkbox" id="hemorragie"><label for="hemorragie">Hémorragie</label></div>
-            <div class="checkbox-item"><input type="checkbox" id="inconscience"><label for="inconscience">Inconscience</label></div>
-            <div class="checkbox-item"><input type="checkbox" id="ar"><label for="ar">AR</label></div>
-            <div class="checkbox-item"><input type="checkbox" id="ac"><label for="ac">AC</label></div>
+        <!-- Bilan UV : grille 2x2 -->
+        <div class="card">
+          <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px;">Bilan UV</div>
+          <div class="uv-grid">
+            <div class="uv-item"><input type="checkbox" id="obva"><label for="obva">OBVA</label></div>
+            <div class="uv-item"><input type="checkbox" id="hemorragie"><label for="hemorragie">Hémorragie</label></div>
+            <div class="uv-item"><input type="checkbox" id="inconscience"><label for="inconscience">Inconscience</label></div>
+            <div class="uv-item"><input type="checkbox" id="ar"><label for="ar">AR</label></div>
+            <div class="uv-item"><input type="checkbox" id="ac"><label for="ac">AC</label></div>
           </div>
         </div>
 
-        <!-- Neuro : bande centrée sur toute la largeur -->
-        <div class="neuro-section">
-          <div class="neuro-title">Neuro</div>
+        <!-- Neuro -->
+        <div class="card">
+          <div style="font-weight: 600; font-size: 14px; margin-bottom: 8px;">Neuro</div>
           <div class="neuro-grid">
-            <div class="neuro-item"><input type="checkbox" id="pasYeux"><label for="pasYeux">N'ouvre pas les yeux</label></div>
-            <div class="neuro-item"><input type="checkbox" id="repVerbale"><label for="repVerbale">Rép. verbale non-adaptée</label></div>
-            <div class="neuro-item"><input type="checkbox" id="desorientation"><label for="desorientation">Désorientation</label></div>
-            <div class="neuro-item"><input type="checkbox" id="motriceAdaptee"><label for="motriceAdaptee">Rep. motrice adaptee</label></div>
-            <div class="neuro-item"><input type="checkbox" id="deficitMoteur"><label for="deficitMoteur">Deficit moteur</label></div>
-            <div class="pci-row">
+            <div class="neuro-chip"><input type="checkbox" id="pasYeux"><label for="pasYeux">N'ouvre pas les yeux</label></div>
+            <div class="neuro-chip"><input type="checkbox" id="repVerbale"><label for="repVerbale">Rép. verbale non-adaptée</label></div>
+            <div class="neuro-chip"><input type="checkbox" id="desorientation"><label for="desorientation">Désorientation</label></div>
+            <div class="neuro-chip"><input type="checkbox" id="motriceAdaptee"><label for="motriceAdaptee">Rep. motrice adaptee</label></div>
+            <div class="neuro-chip"><input type="checkbox" id="deficitMoteur"><label for="deficitMoteur">Deficit moteur</label></div>
+            <div class="pci-wrapper">
               <input type="checkbox" id="pciCheck">
               <label>PCI</label>
-              <label style="margin-left: 0.5vw;">durée (min) :</label>
-              <input type="number" id="pciDuree" disabled>
+              <input type="number" id="pciDuree" class="pci-duree-input" placeholder="min" disabled>
             </div>
-            <div class="neuro-item"><input type="checkbox" id="anysocorie"><label for="anysocorie">Anysocorie</label></div>
+            <div class="neuro-chip"><input type="checkbox" id="anysocorie"><label for="anysocorie">Anysocorie</label></div>
           </div>
         </div>
 
-        <!-- Chronomètre commun (bande pleine largeur) -->
-        <div class="crono-block">
-          <button class="crono-btn" id="startCronoBtn">Démarrer</button>
-          <span class="crono-display" id="cronoDisplay">00:00</span>
+        <!-- Chrono commun -->
+        <div class="card">
+          <div class="crono-row">
+            <button class="crono-btn" id="startCronoBtn">Démarrer</button>
+            <span class="crono-display" id="cronoDisplay">00:00</span>
+          </div>
         </div>
 
-        <!-- Double colonne Respi (gauche) / Circu (droite) -->
+        <!-- Respi / Circu -->
         <div class="vital-row">
           <!-- Respi -->
-          <div class="respi-col">
+          <div class="col">
             <div class="col-title">Respi</div>
-            <div class="input-block">
-              <label>FR :</label>
-              <input type="number" id="fr" class="small-input"> <span style="font-size: 3vw;">/min</span>
+            <div class="input-row">
+              <label>FR</label>
+              <input type="number" id="fr" placeholder="/min">
             </div>
-            <div class="input-block">
-              <label>SpO₂ :</label>
-              <input type="number" id="spo2" class="small-input"> <span style="font-size: 3vw;">%</span>
+            <div class="input-row">
+              <label>SpO₂</label>
+              <input type="number" id="spo2" placeholder="%">
             </div>
-            <div class="checkbox-group-vertical">
-              <div class="checkbox-item"><input type="checkbox" id="ventAmple"><label for="ventAmple">Ventilation Ample</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="ventReguliere"><label for="ventReguliere">Ventilation reguliere</label></div>
+            <div class="checkbox-group-inline">
+              <div class="inline-chip"><input type="checkbox" id="ventAmple"><label for="ventAmple">Ventilation Ample</label></div>
+              <div class="inline-chip"><input type="checkbox" id="ventReguliere"><label for="ventReguliere">Ventilation reguliere</label></div>
             </div>
           </div>
 
           <!-- Circu -->
-          <div class="circu-col">
+          <div class="col">
             <div class="col-title">Circu</div>
-            <div class="input-block">
-              <label>FC :</label>
-              <input type="number" id="fc" class="small-input"> <span style="font-size: 3vw;">/min</span>
+            <div class="input-row">
+              <label>FC</label>
+              <input type="number" id="fc" placeholder="/min">
             </div>
-            <div class="input-block">
-              <label>TA :</label>
+            <div class="input-row">
+              <label>TA</label>
               <div class="bp-group">
-                <input type="number" id="taSys" placeholder="000" maxlength="3"> <span>/</span> <input type="number" id="taDia" placeholder="00" maxlength="2">
+                <input type="number" id="taSys" placeholder="sys" maxlength="3"> <span>/</span> <input type="number" id="taDia" placeholder="dia" maxlength="2">
               </div>
             </div>
-            <div class="input-block">
-              <label>Ref :</label>
-              <input type="checkbox" id="refCheck" style="width: 4vw; height: 4vw;">
-              <div class="bp-group" id="refGroup">
-                <input type="number" id="refSys" placeholder="000" disabled> <span>/</span> <input type="number" id="refDia" placeholder="00" disabled>
+            <div class="input-row">
+              <label>Ref</label>
+              <input type="checkbox" id="refCheck" style="width: 18px; height: 18px; margin:0;">
+              <div class="bp-group" id="refInputsGroup">
+                <input type="number" id="refSys" placeholder="sys" disabled> <span>/</span> <input type="number" id="refDia" placeholder="dia" disabled>
               </div>
             </div>
-            <div class="checkbox-group-vertical">
-              <div class="checkbox-item"><input type="checkbox" id="irregulier"><label for="irregulier">Irregulier</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="filant"><label for="filant">Filant</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="poulsRadial"><label for="poulsRadial">Pouls Radial</label></div>
+            <div class="checkbox-group-inline">
+              <div class="inline-chip"><input type="checkbox" id="irregulier"><label for="irregulier">Irregulier</label></div>
+              <div class="inline-chip"><input type="checkbox" id="filant"><label for="filant">Filant</label></div>
+              <div class="inline-chip"><input type="checkbox" id="poulsRadial"><label for="poulsRadial">Pouls Radial</label></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PAGE B - vide pour l'instant -->
+    <!-- PAGE B -->
     <div class="page page-b">
       <div class="content">
-        <div style="text-align: center; margin-top: 10vw;">Page B</div>
+        <div style="text-align: center; margin-top: 15vh; opacity:0.6;">Page B</div>
       </div>
     </div>
   </div>
@@ -441,7 +489,7 @@
 
 <script>
   (function() {
-    // Gestion swipe
+    // SWIPE
     const container = document.getElementById('swipeContainer');
     const dots = document.querySelectorAll('.indicator-dot');
     let activeIndex = 0;
@@ -509,26 +557,43 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSwipe);
     else initSwipe();
 
-    // Gestion PCI
+    // Gestion PCI conditionnel
     const pciCheck = document.getElementById('pciCheck');
     const pciDuree = document.getElementById('pciDuree');
-    pciCheck.addEventListener('change', function() {
-      pciDuree.disabled = !this.checked;
-      if (!this.checked) pciDuree.value = '';
-    });
+    function togglePciInput() {
+      if (pciCheck.checked) {
+        pciDuree.disabled = false;
+        pciDuree.style.opacity = '1';
+      } else {
+        pciDuree.disabled = true;
+        pciDuree.value = '';
+        pciDuree.style.opacity = '0.6';
+      }
+    }
+    pciCheck.addEventListener('change', togglePciInput);
+    togglePciInput();
 
-    // Gestion Ref
+    // Gestion Ref conditionnel (cacher les inputs si non coché)
     const refCheck = document.getElementById('refCheck');
     const refSys = document.getElementById('refSys');
     const refDia = document.getElementById('refDia');
-    refCheck.addEventListener('change', function() {
-      refSys.disabled = !this.checked;
-      refDia.disabled = !this.checked;
-      if (!this.checked) {
+    const refInputsGroup = document.getElementById('refInputsGroup');
+    
+    function toggleRefInputs() {
+      if (refCheck.checked) {
+        refSys.disabled = false;
+        refDia.disabled = false;
+        refInputsGroup.style.opacity = '1';
+      } else {
+        refSys.disabled = true;
+        refDia.disabled = true;
         refSys.value = '';
         refDia.value = '';
+        refInputsGroup.style.opacity = '0.5';
       }
-    });
+    }
+    refCheck.addEventListener('change', toggleRefInputs);
+    toggleRefInputs();
 
     // Chronomètre 60 secondes
     let cronoInterval = null;
@@ -557,29 +622,42 @@
         if (cronoSeconds < 60) {
           cronoSeconds++;
           cronoDisplay.textContent = formatTime(cronoSeconds);
-          if (cronoSeconds === 60) {
-            stopCrono();
-          }
-        } else {
-          stopCrono();
-        }
+          if (cronoSeconds === 60) stopCrono();
+        } else stopCrono();
       }, 1000);
     }
 
     startBtn.addEventListener('click', startCrono);
 
-    // Limitation des champs TA et Ref
-    const taSys = document.getElementById('taSys');
-    const taDia = document.getElementById('taDia');
-    const refSysInput = document.getElementById('refSys');
-    const refDiaInput = document.getElementById('refDia');
-    
-    taSys.maxLength = 3;
-    taDia.maxLength = 2;
-    refSysInput.maxLength = 3;
-    refDiaInput.maxLength = 2;
+    // Limites inputs TA / Ref
+    document.getElementById('taSys').maxLength = 3;
+    document.getElementById('taDia').maxLength = 2;
+    document.getElementById('refSys').maxLength = 3;
+    document.getElementById('refDia').maxLength = 2;
 
-    // Empêcher le scroll vertical intempestif (déjà géré par overflow auto)
+    // Forcer la hauteur : on vérifie que tout tient sans scroll vertical
+    // On ajuste dynamiquement si besoin mais le flex column + min-height assure déjà.
+    // Pour éviter tout scroll vertical intempestif sur la page, on ajuste le padding
+    function adjustHeight() {
+      const pageA = document.querySelector('.page-a');
+      const content = document.querySelector('.page-a .content');
+      if (pageA && content) {
+        // On s'assure que le contenu ne dépasse pas
+        if (pageA.scrollHeight > pageA.clientHeight) {
+          // Réduire légèrement les gaps si nécessaire
+          const computedGap = window.getComputedStyle(content).gap;
+          let gapVal = parseInt(computedGap);
+          if (gapVal > 6 && pageA.scrollHeight > pageA.clientHeight + 10) {
+            content.style.gap = '6px';
+          }
+        } else {
+          content.style.gap = '';
+        }
+      }
+    }
+    
+    window.addEventListener('resize', () => setTimeout(adjustHeight, 50));
+    setTimeout(adjustHeight, 100);
   })();
 </script>
 </body>
