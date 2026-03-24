@@ -37,12 +37,12 @@
     .pages-wrapper {
       display: flex;
       flex-direction: row;
-      width: 300%;
+      width: 400%;
       height: 100%;
     }
 
     .page {
-      width: 33.333%;
+      width: 25%;
       height: 100%;
       scroll-snap-align: start;
       flex-shrink: 0;
@@ -59,7 +59,6 @@
       gap: clamp(12px, 2vh, 20px);
     }
 
-    /* Cartes */
     .card {
       background: white;
       border-radius: clamp(20px, 4vw, 28px);
@@ -77,11 +76,16 @@
       border-left: 4px solid #2563eb;
     }
 
-    /* Grille 2x2 Bilan UV */
     .grid-2x2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(10px, 2vw, 14px);
+    }
+
+    .grid-3x2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(8px, 1.8vw, 12px);
     }
 
     .chip {
@@ -109,7 +113,6 @@
       flex: 1;
     }
 
-    /* Grille fixe 2 colonnes pour Neurologique */
     .neuro-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -143,14 +146,8 @@
       border: 1px solid #e2e8f0;
       flex-wrap: wrap;
     }
-    .pci-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-    }
-    .pci-item label {
-      font-size: 13px;
-      font-weight: 500;
-    }
+    .pci-item input[type="checkbox"] { width: 18px; height: 18px; }
+    .pci-item label { font-size: 13px; font-weight: 500; }
     .pci-duree {
       width: 65px;
       padding: 5px 8px;
@@ -160,34 +157,44 @@
       text-align: center;
     }
 
-    /* Page 2 : structure en 3 bandes équilibrées */
-    .bande-respi, .bande-circu, .bande-crono {
-      width: 100%;
+    .cac-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(10px, 2vw, 16px);
+      margin-top: 8px;
     }
+    .cac-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+    }
+    .cac-option input { width: 18px; height: 18px; accent-color: #2563eb; cursor: pointer; }
+    .cac-option label { font-size: clamp(12px, 3vw, 14px); font-weight: 500; cursor: pointer; }
 
-    .bande-respi, .bande-circu {
+    /* Page 2 et 3 styles identiques */
+    .vital-card {
       background: white;
-      border-radius: 28px;
-      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 3.5vw, 24px);
+      border-radius: clamp(20px, 4vw, 28px);
+      padding: clamp(14px, 2.2vh, 22px) clamp(16px, 3.5vw, 24px);
       border: 1px solid #eef2f8;
     }
-
-    .bande-title {
+    .vital-title {
       font-weight: 700;
       font-size: clamp(16px, 4.2vw, 20px);
       margin-bottom: clamp(14px, 2vh, 20px);
       text-align: center;
       color: #0f172a;
-      letter-spacing: -0.3px;
     }
-
-    /* Grille pour les lignes de saisie */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(12px, 2vw, 18px);
     }
-
     .form-field {
       display: flex;
       flex-direction: column;
@@ -208,12 +215,11 @@
       font-weight: 500;
       width: 100%;
     }
-    .form-field input:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    .form-field input.out-of-range {
+      border-color: #ef4444;
+      background-color: #fee2e2;
+      color: #dc2626;
     }
-
     .checkbox-group {
       display: flex;
       flex-wrap: wrap;
@@ -230,38 +236,9 @@
       border: 1px solid #e2e8f0;
       cursor: pointer;
     }
-    .checkbox-label input {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: #2563eb;
-    }
-    .checkbox-label span {
-      font-size: clamp(12px, 2.8vw, 14px);
-      font-weight: 500;
-    }
-
-    /* Ref conditionnel */
-    .ref-container {
-      margin-top: 8px;
-      transition: all 0.2s;
-    }
-    .ref-hidden {
-      display: none;
-    }
-
-    /* Chrono bande */
-    .bande-crono {
-      background: white;
-      border-radius: 28px;
-      padding: clamp(14px, 2.2vh, 20px) clamp(16px, 3.5vw, 24px);
-      border: 1px solid #eef2f8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(20px, 5vw, 40px);
-      flex-wrap: wrap;
-    }
+    .checkbox-label input { width: 18px; height: 18px; accent-color: #2563eb; }
+    .checkbox-label span { font-size: clamp(12px, 2.8vw, 14px); font-weight: 500; }
+    .ref-hidden { display: none; }
     .chrono-btn {
       background: #2563eb;
       border: none;
@@ -272,7 +249,6 @@
       font-size: clamp(16px, 4vw, 20px);
       cursor: pointer;
     }
-    .chrono-btn:active { transform: scale(0.97); }
     .chrono-display {
       font-family: monospace;
       font-size: clamp(32px, 8vw, 52px);
@@ -282,52 +258,122 @@
       border-radius: 70px;
       letter-spacing: 3px;
     }
+    .chrono-card {
+      background: white;
+      border-radius: clamp(20px, 4vw, 28px);
+      padding: clamp(14px, 2.2vh, 22px) clamp(16px, 3.5vw, 24px);
+      border: 1px solid #eef2f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(20px, 5vw, 40px);
+      flex-wrap: wrap;
+    }
 
-    /* Indicateur de page */
+    /* Page 4 grille 2 colonnes + tableau */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(12px, 2vw, 18px);
+      margin-bottom: 16px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .input-group label {
+      font-size: clamp(12px, 3vw, 14px);
+      font-weight: 600;
+      color: #475569;
+    }
+    .input-group input {
+      font-size: clamp(16px, 4vw, 20px);
+      padding: clamp(10px, 1.8vh, 14px) clamp(12px, 2.5vw, 16px);
+      border: 1.5px solid #e2e8f0;
+      border-radius: 50px;
+      text-align: center;
+      width: 100%;
+    }
+    .input-group input.out-of-range {
+      border-color: #ef4444;
+      background-color: #fee2e2;
+      color: #dc2626;
+    }
+
+    .tableau-bilan {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+    .bilan-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(10px, 2.5vw, 12px);
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .bilan-table th, .bilan-table td {
+      border: 1px solid #e2e8f0;
+      padding: clamp(6px, 1.2vh, 10px) clamp(4px, 1vw, 8px);
+      text-align: center;
+      vertical-align: middle;
+    }
+    .bilan-table th {
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: clamp(10px, 2.5vw, 12px);
+      white-space: nowrap;
+    }
+    .bilan-table td:first-child {
+      background: #f8fafc;
+      font-weight: 600;
+      text-align: left;
+      font-size: clamp(10px, 2.5vw, 12px);
+      white-space: nowrap;
+    }
+    .bilan-table input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #2563eb;
+      margin: 0;
+    }
+
     .page-indicator {
       position: fixed;
       bottom: max(12px, 2vh);
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 12px;
+      gap: 10px;
       z-index: 30;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
-      padding: 6px 18px;
+      padding: 6px 16px;
       border-radius: 50px;
       pointer-events: none;
     }
     .ind-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
       transition: all 0.2s;
     }
-    .ind-dot.active {
-      width: 26px;
-      background: #1e293b;
-      border-radius: 5px;
-    }
+    .ind-dot.active { width: 22px; background: #1e293b; border-radius: 4px; }
 
-    /* Responsive global */
-    @media (min-height: 750px) {
-      .form-field input { font-size: 18px; padding: 12px 16px; }
-      .checkbox-label span { font-size: 14px; }
+    @media (min-width: 1100px) {
+      .page-content { max-width: 1000px; margin: 0 auto; width: 100%; }
     }
-    @media (min-width: 1000px) {
-      .page-content { max-width: 900px; margin: 0 auto; width: 100%; }
-    }
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button { opacity: 0.5; }
+    input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
   </style>
 </head>
 <body>
 
 <div class="swipe-container" id="swipeContainer">
   <div class="pages-wrapper">
-    <!-- PAGE 1 : Bilan UV + Neurologique -->
+    <!-- PAGE 1 : Bilan UV + Victime (grille 2x2) -->
     <div class="page">
       <div class="page-content">
         <div class="card">
@@ -341,6 +387,23 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="section-title">Victime</div>
+          <div class="grid-2x2">
+            <div class="chip"><input type="checkbox" id="enfant"><label for="enfant">Enfant</label></div>
+            <div class="chip"><input type="checkbox" id="nourisson"><label for="nourisson">Nourisson</label></div>
+            <div class="chip"><input type="checkbox" id="bpco"><label for="bpco">BPCO</label></div>
+            <div class="chip"><input type="checkbox" id="glycemieCAC"><label for="glycemieCAC">Glyc. g/L</label></div>
+            <div class="chip"><input type="checkbox" id="tempBuccalCAC"><label for="tempBuccalCAC">Temp. Buccal</label></div>
+            <div class="chip"><input type="checkbox" id="tempAxillaireCAC"><label for="tempAxillaireCAC">Temp. Axillaire</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2 : Neurologique (grille 2 colonnes) + Aspect des tissus (grille 3x2) -->
+    <div class="page">
+      <div class="page-content">
         <div class="card">
           <div class="section-title">Neurologique</div>
           <div class="neuro-grid">
@@ -357,24 +420,29 @@
             <div class="neuro-item"><input type="checkbox" id="anysocorie"><label for="anysocorie">Anysocorie</label></div>
           </div>
         </div>
+
+        <div class="card">
+          <div class="section-title">Aspect des tissus</div>
+          <div class="grid-3x2">
+            <div class="neuro-item"><input type="radio" name="coloration" value="rose"><label>Rose</label></div>
+            <div class="neuro-item"><input type="radio" name="coloration" value="pale"><label>Pale</label></div>
+            <div class="neuro-item"><input type="radio" name="coloration" value="cyanose"><label>Cyanose</label></div>
+            <div class="neuro-item"><input type="radio" name="temperature" value="chaude"><label>Chaude</label></div>
+            <div class="neuro-item"><input type="radio" name="temperature" value="froide"><label>Froide</label></div>
+            <div class="neuro-item"><input type="checkbox" id="sueurs"><label for="sueurs">Sueurs</label></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- PAGE 2 : 3 bandes équilibrées -->
+    <!-- PAGE 3 : Respiratoire + Circulatoire + Chrono -->
     <div class="page">
       <div class="page-content">
-        <!-- Bande Respiratoire -->
-        <div class="bande-respi">
-          <div class="bande-title">Respiratoire</div>
+        <div class="vital-card">
+          <div class="vital-title">Respiratoire</div>
           <div class="form-grid">
-            <div class="form-field">
-              <label>FR (/min)</label>
-              <input type="number" id="fr" placeholder="—">
-            </div>
-            <div class="form-field">
-              <label>SpO₂ (%)</label>
-              <input type="number" id="spo2" placeholder="—">
-            </div>
+            <div class="form-field"><label>FR (/min)</label><input type="number" id="fr" placeholder="—"></div>
+            <div class="form-field"><label>SpO₂ (%)</label><input type="number" id="spo2" placeholder="—"></div>
           </div>
           <div class="checkbox-group">
             <label class="checkbox-label"><input type="checkbox" id="ventAmple"><span>Ventilation Ample</span></label>
@@ -382,39 +450,16 @@
           </div>
         </div>
 
-        <!-- Bande Circulatoire -->
-        <div class="bande-circu">
-          <div class="bande-title">Circulatoire</div>
+        <div class="vital-card">
+          <div class="vital-title">Circulatoire</div>
           <div class="form-grid">
-            <div class="form-field">
-              <label>FC (/min)</label>
-              <input type="number" id="fc" placeholder="—">
-            </div>
-            <div class="form-field">
-              <label>TA (sys/dia)</label>
-              <div style="display: flex; gap: 8px;">
-                <input type="number" id="taSys" placeholder="sys" style="flex:1;" maxlength="3">
-                <span style="font-size: 20px; align-self: center;">/</span>
-                <input type="number" id="taDia" placeholder="dia" style="flex:1;" maxlength="2">
-              </div>
-            </div>
+            <div class="form-field"><label>FC (/min)</label><input type="number" id="fc" placeholder="—"></div>
+            <div class="form-field"><label>TA (sys/dia)</label><div style="display: flex; gap: 8px;"><input type="number" id="taSys" placeholder="sys" style="flex:1;" maxlength="3"><span style="font-size: 20px;">/</span><input type="number" id="taDia" placeholder="dia" style="flex:1;" maxlength="2"></div></div>
           </div>
-          
-          <!-- Ref avec conditionnel -->
-          <label class="checkbox-label" style="display: inline-flex; margin-top: 4px;">
-            <input type="checkbox" id="refCheck"><span>Ref</span>
-          </label>
+          <label class="checkbox-label" style="display: inline-flex;"><input type="checkbox" id="refCheck"><span>Ref</span></label>
           <div id="refContainer" class="ref-hidden">
-            <div class="form-field" style="margin-top: 10px;">
-              <label>TA Ref (sys/dia)</label>
-              <div style="display: flex; gap: 8px;">
-                <input type="number" id="refSys" placeholder="sys" style="flex:1;" disabled maxlength="3">
-                <span style="font-size: 20px; align-self: center;">/</span>
-                <input type="number" id="refDia" placeholder="dia" style="flex:1;" disabled maxlength="2">
-              </div>
-            </div>
+            <div class="form-field" style="margin-top: 10px;"><label>TA Ref (sys/dia)</label><div style="display: flex; gap: 8px;"><input type="number" id="refSys" placeholder="sys" style="flex:1;" disabled maxlength="3"><span>/</span><input type="number" id="refDia" placeholder="dia" style="flex:1;" disabled maxlength="2"></div></div>
           </div>
-
           <div class="checkbox-group" style="margin-top: 12px;">
             <label class="checkbox-label"><input type="checkbox" id="irregulier"><span>Irregulier</span></label>
             <label class="checkbox-label"><input type="checkbox" id="filant"><span>Filant</span></label>
@@ -422,20 +467,50 @@
           </div>
         </div>
 
-        <!-- Bande Chrono -->
-        <div class="bande-crono">
+        <div class="chrono-card">
           <button class="chrono-btn" id="startCronoBtn">Démarrer</button>
           <span class="chrono-display" id="cronoDisplay">01:00</span>
         </div>
       </div>
     </div>
 
-    <!-- PAGE 3 -->
+    <!-- PAGE 4 : Bilan complémentaire avec grille 2 colonnes + tableau -->
     <div class="page">
       <div class="page-content">
-        <div class="card" style="text-align: center; padding: 40px 24px;">
-          <div style="font-size: clamp(22px, 6vw, 32px); font-weight: 600; color: #334155;">Page 3</div>
-          <div style="font-size: clamp(16px, 4vw, 20px); color: #94a3b8; margin-top: 12px;">à venir</div>
+        <div class="card">
+          <div class="section-title">Bilan complémentaire</div>
+          <div class="grid-2col">
+            <div class="input-group"><label>EVA (0-10)</label><input type="number" id="eva" min="0" max="10" step="1" placeholder="0"></div>
+            <div class="input-group"><label>T (°C)</label><input type="number" id="temperature" step="0.1" placeholder="37.0"></div>
+            <div class="input-group"><label id="glyLabel">Glycémie (mmol/L)</label><input type="number" id="glycemie" step="0.1" placeholder="5.0"></div>
+            <div class="input-group"></div>
+          </div>
+          <div class="cac-group" style="margin-bottom: 16px;">
+            <label class="checkbox-label"><input type="checkbox" id="asymFaciale"><span>Asym Faciale</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="anoParole"><span>Ano parole</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="defSensMbSup"><span>Def. sens. mb. sup.</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="defSensMbInf"><span>Def. sens. mb. inf.</span></label>
+            <label class="checkbox-label"><input type="checkbox" id="premiereFois"><span>Première fois</span></label>
+          </div>
+
+          <div class="tableau-bilan">
+            <table class="bilan-table">
+              <thead><tr><th>Localisation</th><th>Hémorragie</th><th>Douleur</th><th>Déformation</th><th>Confusion</th><th>Plaie</th><th>Brulure</th> </thead>
+              <tbody>
+                <tr><td>Crane</td><td><input type="checkbox" class="checkbox-crane-hemo"></td><td><input type="checkbox" class="checkbox-crane-douleur"></td><td><input type="checkbox" class="checkbox-crane-deform"></td><td><input type="checkbox" class="checkbox-crane-confusion"></td><td><input type="checkbox" class="checkbox-crane-plaie"></td><td><input type="checkbox" class="checkbox-crane-brulure"></td></tr>
+                <tr><td>Face</td><td><input type="checkbox" class="checkbox-face-hemo"></td><td><input type="checkbox" class="checkbox-face-douleur"></td><td><input type="checkbox" class="checkbox-face-deform"></td><td><input type="checkbox" class="checkbox-face-confusion"></td><td><input type="checkbox" class="checkbox-face-plaie"></td><td><input type="checkbox" class="checkbox-face-brulure"></td></tr>
+                <tr><td>Nuque / Cou</td><td><input type="checkbox" class="checkbox-nuque-hemo"></td><td><input type="checkbox" class="checkbox-nuque-douleur"></td><td><input type="checkbox" class="checkbox-nuque-deform"></td><td><input type="checkbox" class="checkbox-nuque-confusion"></td><td><input type="checkbox" class="checkbox-nuque-plaie"></td><td><input type="checkbox" class="checkbox-nuque-brulure"></td></tr>
+                <tr><td>Dos</td><td><input type="checkbox" class="checkbox-dos-hemo"></td><td><input type="checkbox" class="checkbox-dos-douleur"></td><td><input type="checkbox" class="checkbox-dos-deform"></td><td><input type="checkbox" class="checkbox-dos-confusion"></td><td><input type="checkbox" class="checkbox-dos-plaie"></td><td><input type="checkbox" class="checkbox-dos-brulure"></td></tr>
+                <tr><td>Thorax</td><td><input type="checkbox" class="checkbox-thorax-hemo"></td><td><input type="checkbox" class="checkbox-thorax-douleur"></td><td><input type="checkbox" class="checkbox-thorax-deform"></td><td><input type="checkbox" class="checkbox-thorax-confusion"></td><td><input type="checkbox" class="checkbox-thorax-plaie"></td><td><input type="checkbox" class="checkbox-thorax-brulure"></td></tr>
+                <tr><td>Abdomen</td><td><input type="checkbox" class="checkbox-abdomen-hemo"></td><td><input type="checkbox" class="checkbox-abdomen-douleur"></td><td><input type="checkbox" class="checkbox-abdomen-deform"></td><td><input type="checkbox" class="checkbox-abdomen-confusion"></td><td><input type="checkbox" class="checkbox-abdomen-plaie"></td><td><input type="checkbox" class="checkbox-abdomen-brulure"></td></tr>
+                <tr><td>Bassin</td><td><input type="checkbox" class="checkbox-bassin-hemo"></td><td><input type="checkbox" class="checkbox-bassin-douleur"></td><td><input type="checkbox" class="checkbox-bassin-deform"></td><td><input type="checkbox" class="checkbox-bassin-confusion"></td><td><input type="checkbox" class="checkbox-bassin-plaie"></td><td><input type="checkbox" class="checkbox-bassin-brulure"></td></tr>
+                <tr><td>Mem. Sup. D</td><td><input type="checkbox" class="checkbox-msd-hemo"></td><td><input type="checkbox" class="checkbox-msd-douleur"></td><td><input type="checkbox" class="checkbox-msd-deform"></td><td><input type="checkbox" class="checkbox-msd-confusion"></td><td><input type="checkbox" class="checkbox-msd-plaie"></td><td><input type="checkbox" class="checkbox-msd-brulure"></td></tr>
+                <tr><td>Mem. Sup. G</td><td><input type="checkbox" class="checkbox-msg-hemo"></td><td><input type="checkbox" class="checkbox-msg-douleur"></td><td><input type="checkbox" class="checkbox-msg-deform"></td><td><input type="checkbox" class="checkbox-msg-confusion"></td><td><input type="checkbox" class="checkbox-msg-plaie"></td><td><input type="checkbox" class="checkbox-msg-brulure"></td></tr>
+                <tr><td>Mem. Inf. D</td><td><input type="checkbox" class="checkbox-mid-hemo"></td><td><input type="checkbox" class="checkbox-mid-douleur"></td><td><input type="checkbox" class="checkbox-mid-deform"></td><td><input type="checkbox" class="checkbox-mid-confusion"></td><td><input type="checkbox" class="checkbox-mid-plaie"></td><td><input type="checkbox" class="checkbox-mid-brulure"></td></tr>
+                <tr><td>Mem. Inf. G</td><td><input type="checkbox" class="checkbox-mig-hemo"></td><td><input type="checkbox" class="checkbox-mig-douleur"></td><td><input type="checkbox" class="checkbox-mig-deform"></td><td><input type="checkbox" class="checkbox-mig-confusion"></td><td><input type="checkbox" class="checkbox-mig-plaie"></td><td><input type="checkbox" class="checkbox-mig-brulure"></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -446,184 +521,215 @@
   <div class="ind-dot"></div>
   <div class="ind-dot"></div>
   <div class="ind-dot"></div>
+  <div class="ind-dot"></div>
 </div>
 
 <script>
   (function() {
-    // SWIPE avec arrêt obligatoire sur chaque page (snap forcé)
+    // Swipe avec délai et progression page à page
     const container = document.getElementById('swipeContainer');
     const dots = document.querySelectorAll('.ind-dot');
     let activeIndex = 0;
     let isProgrammatic = false;
-    let isSnapping = false;
-    let snapTimeout = null;
+    let lastScrollTime = 0;
+    const SCROLL_DELAY = 500;
 
     function updateIndicator(index) {
-      dots.forEach((dot, i) => {
-        if (i === index) dot.classList.add('active');
-        else dot.classList.remove('active');
-      });
+      dots.forEach((dot, i) => { if (i === index) dot.classList.add('active'); else dot.classList.remove('active'); });
       activeIndex = index;
     }
-
-    function getTargetScroll(index) {
-      return index * container.clientWidth;
-    }
-
+    function getTargetScroll(index) { return index * container.clientWidth; }
     function snapToPage(index, behavior = 'smooth') {
-      if (isSnapping) return;
-      isSnapping = true;
+      if (Math.abs(index - activeIndex) > 1) return;
+      const now = Date.now();
+      if (now - lastScrollTime < SCROLL_DELAY && behavior === 'smooth') return;
+      lastScrollTime = now;
       isProgrammatic = true;
-      const target = getTargetScroll(index);
-      container.scrollTo({ left: target, behavior: behavior });
-      setTimeout(() => {
-        isProgrammatic = false;
-        if (snapTimeout) clearTimeout(snapTimeout);
-        snapTimeout = setTimeout(() => { isSnapping = false; }, 400);
-      }, 350);
+      container.scrollTo({ left: getTargetScroll(index), behavior: behavior });
+      setTimeout(() => { isProgrammatic = false; }, 300);
       updateIndicator(index);
     }
-
     let scrollEndTimer = null;
     function onScrollHandler() {
       if (isProgrammatic) return;
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
-      
       scrollEndTimer = setTimeout(() => {
         const width = container.clientWidth;
         const currentScroll = container.scrollLeft;
-        const rawIndex = currentScroll / width;
-        const newIndex = Math.round(rawIndex);
-        if (newIndex !== activeIndex && newIndex >= 0 && newIndex <= 2) {
+        const newIndex = Math.round(currentScroll / width);
+        if (newIndex !== activeIndex && newIndex >= 0 && newIndex <= 3 && Math.abs(newIndex - activeIndex) <= 1) {
           snapToPage(newIndex, 'smooth');
-        } else if (Math.abs(currentScroll - getTargetScroll(activeIndex)) > 5) {
+        } else if (Math.abs(currentScroll - getTargetScroll(activeIndex)) > 10) {
           snapToPage(activeIndex, 'smooth');
         }
         scrollEndTimer = null;
-      }, 60);
+      }, 50);
     }
-
     container.addEventListener('scroll', onScrollHandler);
     container.addEventListener('scrollend', () => {
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
       const width = container.clientWidth;
       const finalIndex = Math.round(container.scrollLeft / width);
-      if (finalIndex !== activeIndex) {
-        snapToPage(finalIndex, 'auto');
-      } else {
-        const target = getTargetScroll(activeIndex);
-        if (Math.abs(container.scrollLeft - target) > 2) {
-          snapToPage(activeIndex, 'smooth');
-        }
-      }
+      if (finalIndex !== activeIndex && Math.abs(finalIndex - activeIndex) <= 1) snapToPage(finalIndex, 'auto');
+      else if (Math.abs(container.scrollLeft - getTargetScroll(activeIndex)) > 5) snapToPage(activeIndex, 'smooth');
     });
-
-    function initSwipe() {
-      container.scrollLeft = 0;
-      updateIndicator(0);
-      activeIndex = 0;
-    }
-
+    function initSwipe() { container.scrollLeft = 0; updateIndicator(0); activeIndex = 0; }
     let resizeTimer;
     function onResize() {
       if (resizeTimer) clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        const target = getTargetScroll(activeIndex);
-        isProgrammatic = true;
-        container.scrollTo({ left: target, behavior: 'auto' });
-        setTimeout(() => { isProgrammatic = false; }, 100);
-      }, 150);
+      resizeTimer = setTimeout(() => { isProgrammatic = true; container.scrollTo({ left: getTargetScroll(activeIndex), behavior: 'auto' }); setTimeout(() => { isProgrammatic = false; }, 100); }, 150);
     }
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onResize);
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSwipe);
     else initSwipe();
 
-    // ----- CONDITIONNELS -----
-    // PCI
+    // Gestion conditionnels
+    const enfant = document.getElementById('enfant');
+    const nourisson = document.getElementById('nourisson');
+    const bpco = document.getElementById('bpco');
+    const glycemieCAC = document.getElementById('glycemieCAC');
+    const tempBuccalCAC = document.getElementById('tempBuccalCAC');
+    const tempAxillaireCAC = document.getElementById('tempAxillaireCAC');
+    const glyLabel = document.getElementById('glyLabel');
+    const glyInput = document.getElementById('glycemie');
+    
     const pciCheck = document.getElementById('pciCheck');
     const pciDuree = document.getElementById('pciDuree');
-    function togglePCI() {
-      pciDuree.disabled = !pciCheck.checked;
-      if (!pciCheck.checked) pciDuree.value = '';
-    }
-    pciCheck.addEventListener('change', togglePCI);
-    togglePCI();
-
-    // Ref conditionnel (affichage/masquage)
+    pciCheck.addEventListener('change', () => { pciDuree.disabled = !pciCheck.checked; if (!pciCheck.checked) pciDuree.value = ''; });
+    
     const refCheck = document.getElementById('refCheck');
     const refContainer = document.getElementById('refContainer');
     const refSys = document.getElementById('refSys');
     const refDia = document.getElementById('refDia');
+    refCheck.addEventListener('change', () => {
+      if (refCheck.checked) { refContainer.classList.remove('ref-hidden'); refSys.disabled = false; refDia.disabled = false; }
+      else { refContainer.classList.add('ref-hidden'); refSys.disabled = true; refDia.disabled = true; refSys.value = ''; refDia.value = ''; }
+    });
     
-    function toggleRef() {
-      if (refCheck.checked) {
-        refContainer.classList.remove('ref-hidden');
-        refSys.disabled = false;
-        refDia.disabled = false;
+    // Mise à jour du label glycémie selon CAC
+    function updateGlyLabel() {
+      if (glycemieCAC.checked) {
+        glyLabel.textContent = 'Glycémie (g/L)';
+        glyInput.placeholder = '1.0';
       } else {
-        refContainer.classList.add('ref-hidden');
-        refSys.disabled = true;
-        refDia.disabled = true;
-        refSys.value = '';
-        refDia.value = '';
+        glyLabel.textContent = 'Glycémie (mmol/L)';
+        glyInput.placeholder = '5.0';
       }
+      validateInputs();
     }
-    refCheck.addEventListener('change', toggleRef);
-    toggleRef();
-
-    // ----- COUNTDOWN 1 MINUTE -----
+    glycemieCAC.addEventListener('change', updateGlyLabel);
+    updateGlyLabel();
+    
+    // Validation des valeurs et coloration en rouge
+    function validateInputs() {
+      const isEnfant = enfant.checked;
+      const isNourisson = nourisson.checked;
+      const isBPCO = bpco.checked;
+      const isGlyGperL = glycemieCAC.checked;
+      const isTempBuccal = tempBuccalCAC.checked;
+      const isTempAxillaire = tempAxillaireCAC.checked;
+      
+      // FR
+      const fr = parseFloat(document.getElementById('fr').value);
+      const frInput = document.getElementById('fr');
+      if (!isNaN(fr)) {
+        let frValid = false;
+        if (isNourisson) frValid = fr >= 30 && fr <= 40;
+        else if (isEnfant) frValid = fr >= 20 && fr <= 30;
+        else frValid = fr >= 12 && fr <= 20;
+        if (!frValid) frInput.classList.add('out-of-range');
+        else frInput.classList.remove('out-of-range');
+      } else frInput.classList.remove('out-of-range');
+      
+      // FC
+      const fc = parseFloat(document.getElementById('fc').value);
+      const fcInput = document.getElementById('fc');
+      if (!isNaN(fc)) {
+        let fcValid = false;
+        if (isNourisson) fcValid = fc >= 100 && fc <= 150;
+        else if (isEnfant) fcValid = fc >= 70 && fc <= 140;
+        else fcValid = fc >= 60 && fc <= 100;
+        if (!fcValid) fcInput.classList.add('out-of-range');
+        else fcInput.classList.remove('out-of-range');
+      } else fcInput.classList.remove('out-of-range');
+      
+      // SpO2
+      const spo2 = parseFloat(document.getElementById('spo2').value);
+      const spo2Input = document.getElementById('spo2');
+      if (!isNaN(spo2)) {
+        let spo2Valid = isBPCO ? spo2 >= 89 : (spo2 >= 94 && spo2 <= 100);
+        if (!spo2Valid) spo2Input.classList.add('out-of-range');
+        else spo2Input.classList.remove('out-of-range');
+      } else spo2Input.classList.remove('out-of-range');
+      
+      // TA
+      const taSys = parseFloat(document.getElementById('taSys').value);
+      const taDia = parseFloat(document.getElementById('taDia').value);
+      const taSysInput = document.getElementById('taSys');
+      const taDiaInput = document.getElementById('taDia');
+      if (!isNaN(taSys) && !isNaN(taDia)) {
+        const taValid = (taSys >= 100 && taSys <= 140) && (taDia >= 50 && taDia <= 100);
+        if (!taValid) { taSysInput.classList.add('out-of-range'); taDiaInput.classList.add('out-of-range'); }
+        else { taSysInput.classList.remove('out-of-range'); taDiaInput.classList.remove('out-of-range'); }
+      } else { taSysInput.classList.remove('out-of-range'); taDiaInput.classList.remove('out-of-range'); }
+      
+      // Ref différence
+      if (refCheck.checked) {
+        const refSysVal = parseFloat(document.getElementById('refSys').value);
+        const refSysInput = document.getElementById('refSys');
+        if (!isNaN(refSysVal) && !isNaN(taSys) && Math.abs(refSysVal - taSys) > 20) {
+          refSysInput.classList.add('out-of-range');
+        } else refSysInput.classList.remove('out-of-range');
+      }
+      
+      // Température corps
+      const temp = parseFloat(document.getElementById('temperature').value);
+      const tempInput = document.getElementById('temperature');
+      if (!isNaN(temp)) {
+        let tempValid = false;
+        if (isTempBuccal) tempValid = temp >= 35.5 && temp <= 37.5;
+        else if (isTempAxillaire) tempValid = temp >= 34.7 && temp <= 37.7;
+        else tempValid = temp >= 35.8 && temp <= 38;
+        if (!tempValid) tempInput.classList.add('out-of-range');
+        else tempInput.classList.remove('out-of-range');
+      } else tempInput.classList.remove('out-of-range');
+      
+      // Glycémie
+      const gly = parseFloat(document.getElementById('glycemie').value);
+      const glyInputEl = document.getElementById('glycemie');
+      if (!isNaN(gly)) {
+        let glyValid = false;
+        if (isGlyGperL) glyValid = gly >= 0.7 && gly <= 1.2;
+        else glyValid = gly >= 3.3 && gly <= 6.5;
+        if (!glyValid) glyInputEl.classList.add('out-of-range');
+        else glyInputEl.classList.remove('out-of-range');
+      } else glyInputEl.classList.remove('out-of-range');
+    }
+    
+    // Écouteurs pour validation
+    const inputsToValidate = ['#fr', '#fc', '#spo2', '#taSys', '#taDia', '#refSys', '#temperature', '#glycemie'];
+    inputsToValidate.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) el.addEventListener('input', validateInputs);
+    });
+    document.querySelectorAll('#enfant, #nourisson, #bpco, #glycemieCAC, #tempBuccalCAC, #tempAxillaireCAC, #refCheck').forEach(el => {
+      el.addEventListener('change', validateInputs);
+    });
+    validateInputs();
+    
+    // Chrono
     let countdownInterval = null;
     let remainingSeconds = 60;
     const startBtn = document.getElementById('startCronoBtn');
     const display = document.getElementById('cronoDisplay');
-
-    function formatTime(sec) {
-      const mins = Math.floor(sec / 60);
-      const secs = sec % 60;
-      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    function stopCountdown() {
-      if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
-    }
-
-    function startCountdown() {
-      stopCountdown();
-      remainingSeconds = 60;
-      display.textContent = formatTime(60);
-      countdownInterval = setInterval(() => {
-        if (remainingSeconds > 0) {
-          remainingSeconds--;
-          display.textContent = formatTime(remainingSeconds);
-          if (remainingSeconds === 0) stopCountdown();
-        } else stopCountdown();
-      }, 1000);
-    }
+    function formatTime(sec) { const mins = Math.floor(sec / 60); const secs = sec % 60; return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`; }
+    function stopCountdown() { if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; } }
+    function startCountdown() { stopCountdown(); remainingSeconds = 60; display.textContent = formatTime(60); countdownInterval = setInterval(() => { if (remainingSeconds > 0) { remainingSeconds--; display.textContent = formatTime(remainingSeconds); if (remainingSeconds === 0) stopCountdown(); } else stopCountdown(); }, 1000); }
     startBtn.addEventListener('click', startCountdown);
-
-    // Limites inputs
-    document.getElementById('taSys').maxLength = 3;
-    document.getElementById('taDia').maxLength = 2;
-    document.getElementById('refSys').maxLength = 3;
-    document.getElementById('refDia').maxLength = 2;
-
-    // Ajustement responsive pour éviter tout scroll vertical
-    function adjustHeight() {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => {
-        if (page.scrollHeight > page.clientHeight + 8) {
-          const content = page.querySelector('.page-content');
-          if (content) {
-            let currentGap = getComputedStyle(content).gap;
-            let gapVal = parseInt(currentGap);
-            if (gapVal > 8) content.style.gap = '8px';
-          }
-        }
-      });
-    }
-    window.addEventListener('resize', () => setTimeout(adjustHeight, 60));
-    setTimeout(adjustHeight, 100);
+    
+    document.getElementById('taSys').maxLength = 3; document.getElementById('taDia').maxLength = 2;
+    document.getElementById('refSys').maxLength = 3; document.getElementById('refDia').maxLength = 2;
   })();
 </script>
 </body>
